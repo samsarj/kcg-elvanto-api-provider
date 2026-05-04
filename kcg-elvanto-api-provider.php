@@ -2,7 +2,7 @@
 /**
  * Plugin Name: KCG Elvanto API Provider
  * Description: Provides API key storage for Elvanto integration.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Sam Sarjudeen
  * Author URI: https://github.com/samsarj
  * Plugin URI: https://github.com/samsarj/kcg-elvanto-api-provider
