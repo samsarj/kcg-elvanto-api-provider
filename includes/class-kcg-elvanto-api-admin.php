@@ -11,18 +11,20 @@ if (!defined('ABSPATH')) {
 class KCG_Elvanto_API_Admin {
     
     public function __construct() {
-        add_action('admin_menu', array($this, 'add_admin_page'));
+        add_action('admin_menu', array($this, 'add_admin_page'), 5);
         add_action('admin_init', array($this, 'register_settings'));
         add_action('admin_init', array($this, 'handle_test_request'));
     }
 
     public function add_admin_page() {
-        add_options_page(
-            'Elvanto API Settings', 
-            'Elvanto API', 
-            'manage_options', 
-            'kcg-elvanto-api', 
-            array($this, 'admin_page')
+        add_menu_page(
+            'Elvanto API Settings',
+            'Elvanto API',
+            'manage_options',
+            'kcg-elvanto-api',
+            array($this, 'admin_page'),
+            'dashicons-admin-network',
+            60
         );
     }
 
