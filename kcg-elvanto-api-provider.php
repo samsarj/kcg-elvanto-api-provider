@@ -32,10 +32,26 @@ class KCG_Elvanto_API_Registry {
     public static function has_api_key() {
         return !empty(self::get_api_key());
     }
+
+    public static function is_available() {
+        return class_exists('KCG_Elvanto_API_Registry') && self::has_api_key();
+    }
 }
+
+// Load shared API client
+require_once(plugin_dir_path(__FILE__) . 'includes/class-kcg-elvanto-api-client.php');
 
 // Load admin functionality
 require_once(plugin_dir_path(__FILE__) . 'includes/class-kcg-elvanto-api-admin.php');
+
+// Register activation and deactivation hooks
+register_activation_hook(__FILE__, function() {
+    // No scheduled tasks required for the provider plugin yet
+});
+
+register_deactivation_hook(__FILE__, function() {
+    // No cleanup actions required for the provider plugin yet
+});
 
 // Initialize admin interface on plugins_loaded
 add_action('plugins_loaded', function() {
